@@ -21,9 +21,18 @@ class HomeScreen extends StatelessWidget {
             foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
           ),
           onPressed: () {
-            Navigator.pushNamed(context, '/spanish_old_words_screen');
+            Navigator.pushNamed(context, '/old_words_screen', arguments: {'language': 'es'});
           },
           child: const Text('Voir tous les mots espanols'),
+        ),
+        TextButton(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+          ),
+          onPressed: () {
+            Navigator.pushNamed(context, '/old_words_screen', arguments: {'language': 'en'});
+          },
+          child: const Text('Voir tous les mots anglais'),
         )
       ]));
   }
