@@ -11,7 +11,7 @@ class _WordsScreen extends State<WordsScreen> {
 
   @override
   void initState() {
-    _apiData = fetchLanguages("word");
+    _apiData = fetchANewWord();
     super.initState();
   }
 

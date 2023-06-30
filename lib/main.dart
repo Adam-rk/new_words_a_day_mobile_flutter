@@ -11,8 +11,8 @@ void main() {
 class MyApp extends StatelessWidget {
   final Map<String, WidgetBuilder> routes = {
     '/': (context) => const HomeScreen(),
-    '/words_screen': (context) => WordsScreen(),
-    '/spanish_old_words_screen': (context) => const SpanishOldWordsScreen()
+    '/spanish_old_words_screen': (context) => const SpanishOldWordsScreen(),
+    '/words_screen': (context) => WordsScreen()
   };
 
 
