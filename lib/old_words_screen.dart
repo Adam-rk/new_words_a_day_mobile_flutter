@@ -11,7 +11,6 @@ class OldWordsScreen extends StatefulWidget {
 class _OldWordsScreenState extends State<OldWordsScreen> {
   Future<List<dynamic>>? _apiData;
 
-  
   @override
   void initState() {
     _apiData = fetchOldWords("es");
@@ -20,7 +19,8 @@ class _OldWordsScreenState extends State<OldWordsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final routeArguments = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final routeArguments =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final language = routeArguments['language'];
 
     _apiData = fetchOldWords(language);
@@ -28,22 +28,28 @@ class _OldWordsScreenState extends State<OldWordsScreen> {
       future: _apiData,
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
-          return SingleChildScrollView(
-            child: Column(
-                children: snapshot.data
-                    .map((word) => TextButton(
-                          style: ButtonStyle(
-                            foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.blue),
-                          ),
-                          onPressed: () {
-                            Navigator.pushNamed(
-                                context, '/view_word', arguments: {'id': word['id']});
-                          },
-                          child: Text(word['word']),
-                        ))
-                    .toList()
-                    .cast<Widget>()),
+          return ListView.builder(
+            itemCount: snapshot.data.length,
+            itemBuilder: (BuildContext context, int index) {
+              var word = snapshot.data[index];
+              return Card(
+                elevation: 2.0,
+                margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                color: Colors.greenAccent,
+                child: ListTile(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/view_word',
+                        arguments: {'id': word['id']});
+                  },
+                  title: Text(
+                    word['word'],
+                    style:
+                        const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                  ),
+                  
+                ),
+              );
+            },
           );
         } else if (snapshot.hasError) {
           return const Text("Une erreur s'est produite");

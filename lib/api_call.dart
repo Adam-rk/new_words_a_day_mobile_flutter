@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-const ipAddress =  "172.29.48.1";
+const ipAddress =  "192.168.0.23";
 Future<Map<String, dynamic>> fetchANewWord() async {
 
   

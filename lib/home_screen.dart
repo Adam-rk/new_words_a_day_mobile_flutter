@@ -5,35 +5,60 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.fromLTRB(0.0, 300.0, 0.0, 15.0), child: Column(children: <Widget>[
-      
-        TextButton(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-          ),
+    return Align(
+  alignment: Alignment.bottomCenter,
+  child: Container(
+    margin: const EdgeInsets.only(bottom: 70.0),
+    height: 70.0,
+    decoration: BoxDecoration(
+      color: const Color.fromARGB(117, 156, 177, 199),
+      borderRadius: BorderRadius.circular(10.0)
+    ),
+    
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        ElevatedButton.icon(
           onPressed: () {
             Navigator.pushNamed(context, '/words_screen');
           },
-          child: const Text('Nouveaux mots'),
-        ),
-        TextButton(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+          icon: const Icon(Icons.add),
+          label: const Text('New words'),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blue,
+            foregroundColor: Colors.white,
           ),
-          onPressed: () {
-            Navigator.pushNamed(context, '/old_words_screen', arguments: {'language': 'es'});
-          },
-          child: const Text('Voir tous les mots espanols'),
         ),
-        TextButton(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-          ),
+        const SizedBox(width: 7.0), // Add spacing between buttons
+        ElevatedButton.icon(
           onPressed: () {
-            Navigator.pushNamed(context, '/old_words_screen', arguments: {'language': 'en'});
+            Navigator.pushNamed(context, '/old_words_screen',
+                arguments: {'language': 'es'});
           },
-          child: const Text('Voir tous les mots anglais'),
-        )
-      ]));
+          icon: const Icon(Icons.history),
+          label: const Text('Spanish'),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+          ),
+        ),
+        const SizedBox(width: 7.0), // Add spacing between buttons
+        ElevatedButton.icon(
+          onPressed: () {
+            Navigator.pushNamed(context, '/old_words_screen',
+                arguments: {'language': 'en'});
+          },
+          icon: const Icon(Icons.history),
+          label: const Text('English'),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+          ),
+        ),
+      ],
+    ),
+  ),
+);
+
   }
 }
