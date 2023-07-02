@@ -1,16 +1,9 @@
 # new_words_a_day_mobile_flutter
 
-A new Flutter project.
+This is my flutter part of my new words a day app. You can find the symfony back-office [here](https://github.com/Adam-rk/new-words-a-day). 
 
-## Getting Started
+To properly set up the project, first you'll have to install all the required dependencies (```flutter pub get```). 
 
-This project is a starting point for a Flutter application.
+Then, go to the ```api_call.dart``` file, located here: ```new_words_a_day_mobile_flutter/lib/api_call.dart``` and change the value of the ```ipAddress``` constant so it matches your machine's ip address. 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Finally, launch your emulator and then your app. 
