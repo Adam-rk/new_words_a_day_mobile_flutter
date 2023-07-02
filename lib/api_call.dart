@@ -12,7 +12,7 @@ Future<Map<String, dynamic>> fetchANewWord() async {
 
     return data;
   } else {
-    throw Exception('Impossible de récuperer les résultats');
+    throw Exception("Can't fetch data");
   }
 }
 
@@ -25,7 +25,7 @@ Future<List<dynamic>> fetchOldWords(String language) async {
     final List<dynamic> data = json.decode(response.body);
     return data;
   } else {
-    throw Exception('Impossible de récuperer les résultats');
+    throw Exception("Can't fetch data");
   }
 }
 
@@ -37,6 +37,18 @@ Future<Map<String, dynamic>> fetchWordById(int id) async {
     final Map<String, dynamic> data = json.decode(response.body);
     return data;
   } else {
-    throw Exception('Impossible de récuperer les résultats');
+    throw Exception("Can't fetch data");
+  }
+}
+
+Future<Map<String, dynamic>> fetchLastWordByLanguage(String language) async {
+
+  final response = await http.get(Uri.parse("http://$ipAddress:8000/getLastWordByLanguage/$language")); 
+  
+  if (response.statusCode == 200) {
+    final Map<String, dynamic> data = json.decode(response.body);
+    return data;
+  } else {
+    throw Exception("Can't fetch data");
   }
 }

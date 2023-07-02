@@ -29,34 +29,26 @@ class _ViewWordState extends State<ViewWord> {
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
           final data = snapshot.data;
-
-          final creationDate = data['creationDate'];
           return SingleChildScrollView(
               child: Column(children: <Widget>[
             Padding(
                 padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
-                child: Text(
-                  creationDate,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      decoration: TextDecoration.none),
-                )),
-            Text(data['word'],
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    decoration: TextDecoration.none)),
+                child: Text(data['word'],
+                    style: const TextStyle(
+                        color: Colors.deepOrange,
+                        fontSize: 25,
+                        decoration: TextDecoration.none))),
             Padding(
                 padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                 child: Text(data['definition'],
                     style: const TextStyle(
                         color: Colors.white,
                         fontSize: 20,
-                        decoration: TextDecoration.none)))
+                        decoration: TextDecoration.none,
+                        fontWeight: FontWeight.normal)))
           ]));
         } else if (snapshot.hasError) {
-          return const Text("Une erreur s'est produite");
+          return const Text("An error occured");
         }
         return const CircularProgressIndicator();
       },

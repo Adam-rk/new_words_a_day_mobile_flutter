@@ -52,7 +52,7 @@ class _OldWordsScreenState extends State<OldWordsScreen> {
             },
           );
         } else if (snapshot.hasError) {
-          return const Text("Une erreur s'est produite");
+          return const Text("An error occured");
         }
         return const CircularProgressIndicator();
       },

@@ -48,47 +48,45 @@ class _WordsScreen extends State<WordsScreen> {
                     ),
                     Text(englishWord,
                         style: const TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green,
-                            decoration: TextDecoration.none)),
+                                    color: Colors.deepOrange,
+                                    fontSize: 25,
+                                    decoration: TextDecoration.none)),
                   ])),
               ...englishDefinitions
                   .map((definition) => Padding(
                       padding: const EdgeInsets.all(20),
                       child: Text(
                         definition,
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontStyle: FontStyle.italic,
-                            color: Colors.white,
-                            decoration: TextDecoration.none),
+                        style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                decoration: TextDecoration.none,
+                                fontWeight: FontWeight.normal),
                       )))
                   .toList(),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 20.0),
                 child: Text(spanishWord,
                     style: const TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green,
-                        decoration: TextDecoration.none)),
+                                    color: Colors.deepOrange,
+                                    fontSize: 25,
+                                    decoration: TextDecoration.none)),
               ),
               ...spanishDefinitions
                   .map((definition) => Padding(
                       padding: const EdgeInsets.all(20),
                       child: Text(
                         definition,
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontStyle: FontStyle.italic,
-                            color: Colors.white,
-                            decoration: TextDecoration.none),
+                        style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                decoration: TextDecoration.none,
+                                fontWeight: FontWeight.normal),
                       )))
                   .toList(),
             ]));
           } else if (snapshot.hasError) {
-            return const Text("Une erreur s'est produite");
+            return const Text("An error occured");
           }
           return const CircularProgressIndicator();
         });
